@@ -16,8 +16,6 @@
 
         #canvas {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0px 30px rgba(0, 0, 0, 0.25);
-            border-radius: 50%;
-            overflow: hidden;
         }
     </style>
 </head>
@@ -31,13 +29,19 @@
             height: 300,
             type: "svg",
             data: "https://linkfree.io/",
-            image: "https://linkfree.io/_next/image?url=%2Flogo192.png&w=24&q=75",
+            image: "https://linkfree.io/_next/image?url=%2Flogo192.png&w=32&q=75",
             dotsOptions: {
-                color: "#E63946",
-                type: "square"
+                color: {
+                    type: "radial-gradient",
+                    value: ["#E63946", "#F1FAEE"]
+                },
+                type: "rounded"
             },
             cornersSquareOptions: {
-                color: "#F1FAEE"
+                color: {
+                    type: "radial-gradient",
+                    value: ["#A8DADC", "#457B9D"]
+                },
             },
             cornersDotOptions: {
                 color: "#1D3557"
@@ -46,12 +50,12 @@
                 color: "#457B9D",
             },
             borderOptions: {
-                color: "#457B9D",
-                width: 5
+                color: "#F1FAEE",
+                width: 10
             },
             imageOptions: {
                 crossOrigin: "anonymous",
-                margin: 30
+                margin: 20
             }
         });
 
