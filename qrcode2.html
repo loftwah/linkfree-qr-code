@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enhanced QR Code Styling</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        /* Optional: add some styling to center the QR code on the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f9fc;
+        }
+
+        #canvas {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <script type="text/javascript">
+
+        const qrCode = new QRCodeStyling({
+            width: 300,
+            height: 300,
+            type: "svg",
+            data: "https://linkfree.io/",
+            image: "https://linkfree.io/_next/image?url=%2Flogo192.png&w=32&q=75",
+            dotsOptions: {
+                color: {
+                    type: "radial-gradient",
+                    value: ["#EA580C", "#F87171"]
+                },
+                type: "rounded"
+            },
+            cornersSquareOptions: {
+                color: {
+                    type: "radial-gradient",
+                    value: ["#F87171", "#EA580C"]
+                },
+            },
+            cornersDotOptions: {
+                color: "#F87171"
+            },
+            backgroundOptions: {
+                color: "#e9ebee",
+            },
+            borderOptions: {
+                color: "#EA580C",
+                width: 6
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 20
+            }
+        });
+
+        qrCode.append(document.getElementById("canvas"));
+
+        // You can uncomment this line if you wish to auto-download the QR Code
+        // qrCode.download({ name: "enhanced_qr", extension: "svg" });
+    </script>
+</body>
+
+</html>
