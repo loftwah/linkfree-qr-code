@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bee-themed QR Code</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #FFD700, #FFEB3B);
+        }
+
+        #canvas {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), 0 0px 30px rgba(0, 0, 0, 0.35);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <script type="text/javascript">
+
+        const qrCode = new QRCodeStyling({
+            width: 300,
+            height: 300,
+            type: "svg",
+            data: "https://linkfree.io/",
+            image: "https://linkfree.io/_next/image?url=%2Flogo192.png&w=32&q=75", // You can replace this with a bee or honeycomb image if you have one.
+            dotsOptions: {
+                color: {
+                    type: "radial-gradient",
+                    value: ["#3E3E3E", "#E9B000"]  // Dark grey to honey color
+                },
+                type: "square"
+            },
+            cornersSquareOptions: {
+                color: {
+                    type: "radial-gradient",
+                    value: ["#FFEB3B", "#FFC107"]  // Bright yellow to amber
+                },
+            },
+            cornersDotOptions: {
+                color: "#3E3E3E"  // Dark grey
+            },
+            backgroundOptions: {
+                color: "#FFEB3B", // Bright yellow background
+            },
+            borderOptions: {
+                color: "#FFD700", // Gold border
+                width: 7
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 15
+            }
+        });
+
+        qrCode.append(document.getElementById("canvas"));
+    </script>
+</body>
+
+</html>
