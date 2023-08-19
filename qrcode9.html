@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solarized QR Code</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        body {
+            background-color: #002B36;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #canvas {
+            box-shadow: 0 0 20px #93a1a1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <script type="text/javascript">
+        const qrCode = new QRCodeStyling({
+            width: 300,
+            height: 300,
+            type: "svg",
+            data: "https://linkfree.io/",
+            image: "https://linkfree.io/_next/image?url=%2Flogo192.png&w=64&q=75",
+            dotsOptions: {
+                color: {
+                    type: "square",
+                    value: "#268BD2"
+                },
+                type: "dot"
+            },
+            cornersSquareOptions: {
+                color: {
+                    type: "square",
+                    value: ["#2AA198", "#CB4B16"]
+                },
+            },
+            cornersDotOptions: {
+                color: "#DC322F"
+            },
+            backgroundOptions: {
+                color: "#073642",
+            },
+            borderOptions: {
+                color: "#586E75",
+                width: 7
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 20
+            },
+            dotsOptionsHelper: {
+                color: "#B58900",
+                type: "rounded"
+            },
+            backgroundOptionsHelper: {
+                color: "#839496"
+            }
+        });
+
+        qrCode.append(document.getElementById("canvas"));
+    </script>
+</body>
+</html>

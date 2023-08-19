@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Army Themed QR Code</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #canvas {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <script type="text/javascript">
+        const qrCode = new QRCodeStyling({
+            width: 300,
+            height: 300,
+            type: "svg",
+            data: "https://linkfree.io/",
+            image: "https://linkfree.io/_next/image?url=%2Flogo192.png&w=64&q=75",  // Increased size to 64 for visibility
+            dotsOptions: {
+                color: {
+                    type: "radial-gradient",
+                    value: ["#4B5320", "#6B8E23", "#3B3D0A"]
+                },
+                type: "rounded"
+            },
+            cornersSquareOptions: {
+                color: {
+                    type: "radial-gradient",
+                    value: ["#4B5320", "#3B3D0A"]
+                },
+            },
+            cornersDotOptions: {
+                color: "#6B8E23"
+            },
+            backgroundOptions: {
+                color: "#5A5B2A",
+            },
+            borderOptions: {
+                color: "#2C2D10",
+                width: 7
+            },
+            imageOptions: {
+                crossOrigin: "anonymous",
+                margin: 20
+            }
+        });
+
+        qrCode.append(document.getElementById("canvas"));
+    </script>
+</body>
+</html>
